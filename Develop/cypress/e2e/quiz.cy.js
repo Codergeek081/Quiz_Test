@@ -1,6 +1,6 @@
 describe('Tech Quiz E2E', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:3000'); // adjust if using a different port
+      cy.visit('http://localhost:3001'); // adjust if using a different port
     });
   
     it('should start the quiz and display a question', () => {
@@ -23,9 +23,13 @@ describe('Tech Quiz E2E', () => {
   
     it('should complete the quiz and show score after answering all questions', () => {
       cy.contains('Start Quiz').click();
+      cy.get('h2').should('exist');
   
       for (let i = 0; i < 10; i++) {
-        cy.get('button').first().click();
+        cy.get('button')
+          .first()
+          .should('be.visible')
+          .click();
       }
   
       cy.contains('Quiz Completed').should('exist');
@@ -34,9 +38,13 @@ describe('Tech Quiz E2E', () => {
   
     it('should allow restarting the quiz after completion', () => {
       cy.contains('Start Quiz').click();
+      cy.get('h2').should('exist');
   
       for (let i = 0; i < 10; i++) {
-        cy.get('button').first().click();
+        cy.get('button')
+          .first()
+          .should('be.visible')
+          .click();
       }
   
       cy.contains('Take New Quiz').click();

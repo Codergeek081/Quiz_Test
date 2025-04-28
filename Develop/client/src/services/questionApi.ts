@@ -2,7 +2,7 @@ import type { Question } from '../models/Question.js';
 
 export const getQuestions = async (): Promise<Question[]> => {
   try {
-    const response = await fetch('/api/questions/random');
+    const response = await fetch('http://localhost:3002/api/questions/random');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

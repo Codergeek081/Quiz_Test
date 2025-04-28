@@ -2,7 +2,6 @@
   "name": "coding-quiz",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "start": "npm run client:build && npm run server",
     "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
@@ -14,7 +13,9 @@
     "build": "cd server && npm run build",
     "seed": "cd server && npm run seed",
     "render-build": "npm install && npm run build",
-    "test": "cypress run --component"
+    "cy:open": "cypress open --port 3000",
+    "test": "cypress run --component",
+    "test:e2e" : "cypress run --e2e"
   },
   "keywords": [],
   "author": "",
